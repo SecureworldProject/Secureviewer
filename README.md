@@ -5,7 +5,9 @@ Secureviwer es un softweare necesario para compartir información confidencial c
 
 # FUNCIONAMIENTO
 secureviwer.py: Este fichero contiene el programa principal de Secureviwer y su diseño.
+
 funciones.py: Contiene las funciones correspondientes a la obtención de información del pdf, como metadatos y páginas.
+
 opendoc.py: Contiene las funciones necesarias para descifrar el .uva y obtener la binary string del pdf. 
 
 
