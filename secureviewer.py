@@ -39,7 +39,7 @@ class PDFViewer:
         # this disables the minimize/maximize button on the main window
         self.master.resizable(width = 0, height = 0)
         # loads the icon and adds it to the main window
-        self.master.iconbitmap(self.master, 'B:/Doctorado/SVIWER/UVA.ico')
+        self.master.iconbitmap(self.master, 'UVA.ico')
         # creating the menu
         self.menu = Menu(self.master)
         # adding it to the main window
@@ -88,8 +88,8 @@ class PDFViewer:
 
 
         # loading the button icons
-        self.uparrow_icon = PhotoImage(file='B:/Doctorado/SVIWER/uparrow.png')
-        self.downarrow_icon = PhotoImage(file='B:/Doctorado/SVIWER/downarrow.png')
+        self.uparrow_icon = PhotoImage(file='uparrow.png')
+        self.downarrow_icon = PhotoImage(file='downarrow.png')
         # resizing the icons to fit on buttons
         self.uparrow = self.uparrow_icon.subsample(3, 3)
         self.downarrow = self.downarrow_icon.subsample(3, 3)
