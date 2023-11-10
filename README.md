@@ -37,5 +37,4 @@ pip install cryptography
 - os: para crear directorios y listar archivos. https://docs.python.org/es/3.10/library/os.html
 
 # Ejecutable
-Para utilizar el .exe de Secureviewer, descargar la carpeta "secureviewer" en https://drive.google.com/drive/folders/1ZiKQD9I2wkyUtpFhv4B3JGp0JNFbr6mf?hl=es
-y ejecutarlo desde el directorio
+Para utilizar el .exe de Secureviewer, descargar la carpeta "secureviewer" y ejecutarlo desde el mismo directorio
