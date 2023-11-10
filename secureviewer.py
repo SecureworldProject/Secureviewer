@@ -11,6 +11,8 @@ import os
 # importing the PDF_Functions class from the functions file and other functions
 from functions import PDF_Functions
 from opendoc import open_doc
+import keyboard
+import signal
 
 # creating a class called PDFViewer
 class PDFViewer:
@@ -227,10 +229,43 @@ class PDFViewer:
                 messagebox.showinfo(message="Debe introducir un número de página", title="Número de página incorrecto")
                 
 
+class KeyBlocker:
+    def __init__(self, v):
+        self.locked = False
+        v.bind("<FocusIn>", self.on_focus_in)
+        v.bind("<FocusOut>", self.on_focus_out)
+        v.bind("<Destroy>", self.on_focus_out)
+        v.bind_class("Toplevel", "<FocusIn>", self.on_focus_in)
+        v.bind_class("Toplevel", "<FocusOut>", self.on_focus_out)
+        v.bind_class("Toplevel", "<Destroy>", self.on_focus_out)
+
+        signal.signal(signal.SIGTERM, self.on_focus_out)
+
+    def on_focus_in(self, event):
+        self.lock()
+    
+    def on_focus_out(self, event):
+        self.unlock()
+
+    def lock(self):
+        if(not self.locked):
+            for i in range(65):
+                keyboard.block_key(i)
+            self.locked = True
+
+    def unlock(self):
+        if(self.locked):
+            for i in range(65):
+                keyboard.unblock_key(i)
+            self.locked = False
+
+
   
 # creating the root winding using Tk() class
 root = Tk()
 root.state('zoomed')
+# disabling part of keyboard to avoid screenshots
+kb = KeyBlocker(root)
 # instantiating/creating object app for class PDFViewer
 app = PDFViewer(root)
 # calling the mainloop to run the app infinitely until user closes it
